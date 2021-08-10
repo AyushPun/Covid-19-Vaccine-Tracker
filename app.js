@@ -8,14 +8,17 @@ const s = document.getElementById('search');
 const r = document.getElementById('reset');
 const input = document.getElementById('INPUT');
 const ftr = document.getElementById('footer');
-
+const nores = document.getElementById('nores'); 
 
 //Output
 const container = document.getElementById('contents');
 
 let cascade = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?"
 let select; //selected cost
-let api = "";
+let api = "", array;
+date.addEventListener('change', () => {
+    array = date.value.split('-');     //{"2021","08","10"}
+})
 
 //Output function
 let output = (dataOut) => {
@@ -84,7 +87,9 @@ let output = (dataOut) => {
     slot.append(price);
     container.append(slot);
     slot.classList.add("slot", "col", "p-1");
-
+    }
+    if (container.innerText == "") {
+        nores.innerHTML = `<p><span>NO SLOTS AVAILABLE<img src="cry.png" alt="cry"></span></p>`;
     }
 }
 
@@ -99,7 +104,8 @@ r.addEventListener('click', () => {
 //search
 s.addEventListener('click', () => {
     s.disabled = true;
-    api = `${cascade}pincode=${pin.value}&date=${date.value}`;
+    api = `${cascade}pincode=${pin.value}&date=${array[2]}-${array[1]}-${array[0]}`;
+    console.log(api);
     select = cost.value;
     fetch(api)
         .then((res) => res.json())
@@ -107,6 +113,7 @@ s.addEventListener('click', () => {
             input.remove();
             ftr.style.position = "static";
             output(data.sessions);
+            console.log(data.sessions)
         })
         .catch((err) => {
             console.log("Error!!!");
