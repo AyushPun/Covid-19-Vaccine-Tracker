@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vaccine Locator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="search.png" type="image/x-icon">
+    <style>
+      body {
+        font-family: "Poiret One";
+      }
+      .main {
+        width: 50%;
+        font-weight: bold;
+      }
+      body {
+        height: 100vh;
+        padding: 0;
+        background-color: #343a40;
+        color: #e1e8eb;
+      }
+      footer {
+        background: rgba(35, 35, 36, 0.637);
+        bottom: 0;
+        color: white;
+        height: 70px; /* Height of the footer */
+        position: absolute;
+        width: 100%;
+      }
+      .main hr {
+        border-top: 15px dotted white;
+        background-color: #2b2f33;
+        width: 30%;
+      }
+      #INPUT {
+        padding: 10px;
+      }
+      .slot {
+        text-align: center;
+        border: 5px solid white;
+        border-style: outset;
+        border-radius: 10px;
+        font-family: "Roboto", sans-serif;
+      }
+      .slot h2 {
+        font-weight: 900;
+      }
+      p {
+        margin: 5px auto;
+        width: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <center>
+      <div>
+        <h1 class="display-3">Cowin Vaccine tracker</h1>
+      </div>
+
+      <div class="main">
+
+        <div class="row g-3" id="INPUT">
+          <div class="col-md-4">
+            <label for="pincode" class="form-label">Pincode</label>
+            <input type="number" id="pincode" class="form-control" placeholder="Enter the Pincode" required/>
+          </div>
+          <div class="col-md-4">
+            <label for="date" class="form-label">Appointment Date</label>
+            <input type="text" id="date" class="form-control" placeholder="DD-MM-YYYY" required />
+          </div>
+          <div class="col-md-4">
+            <label for="cost" class="form-label">Cost</label>
+            <select
+              id="cost"
+              class="form-select"
+            >
+              <option value="all" selected>All</option>
+              <option value="free">Free</option>
+              <option value="paid">Paid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-2 justify-content-center">
+          <div class="col-auto">
+            <button id="search" class="btn btn-success">Search</button>
+          </div>
+          <div class="col-auto">
+            <button id="reset" class="btn btn-primary">Reset</button>
+          </div>
+        </div>
+        <hr />
+        
+      </div>
+    </center>
+
+    <div class="container">
+    <div id="contents" class="row row-cols-1 row-cols-md-2">
+      <!-- Objects -->
+    </div>
+    </div>
+
+    <footer id="footer" class="text-center">
+      <span>Site is Made by Ayush Pun using open source API.</span>
+      <div>© 2020 Copyright</div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
