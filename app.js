@@ -22,7 +22,7 @@ let output = (dataOut) => {
 
     container.innerHTML = "";
     for (data of dataOut) {
-        if (select != "all")
+        if (select != "All")
             if(data.fee_type != select)
                 continue;
     
@@ -98,7 +98,6 @@ r.addEventListener('click', () => {
 
 //search
 s.addEventListener('click', () => {
-    console.log('clicked');
     s.disabled = true;
     api = `${cascade}pincode=${pin.value}&date=${date.value}`;
     select = cost.value;
