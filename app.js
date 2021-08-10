@@ -89,7 +89,7 @@ let output = (dataOut) => {
     slot.classList.add("slot", "col", "p-1");
     }
     if (container.innerText == "") {
-        nores.innerHTML = `<p><span>NO SLOTS AVAILABLE<img src="cry.png" alt="cry"></span></p>`;
+        nores.innerHTML = `<p>NO SLOTS AVAILABLE<img src="cry.png" alt="cry"></p>`;
     }
 }
 
@@ -105,7 +105,6 @@ r.addEventListener('click', () => {
 s.addEventListener('click', () => {
     s.disabled = true;
     api = `${cascade}pincode=${pin.value}&date=${array[2]}-${array[1]}-${array[0]}`;
-    console.log(api);
     select = cost.value;
     fetch(api)
         .then((res) => res.json())
@@ -113,7 +112,6 @@ s.addEventListener('click', () => {
             input.remove();
             ftr.style.position = "static";
             output(data.sessions);
-            console.log(data.sessions)
         })
         .catch((err) => {
             console.log("Error!!!");
